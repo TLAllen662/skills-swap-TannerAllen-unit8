@@ -1,6 +1,10 @@
 const skillSwapFunctions = require("../skillswap");
 
-const { filterSkillsByCategory, calculateTotalCosts } = skillSwapFunctions;
+const {
+  filterSkillsByCategory,
+  calculateTotalCosts,
+  matchSkillsToUser,
+} = skillSwapFunctions;
 
 const skills = [
   { title: "Python Tutoring", category: "Programming", price: 20 },
@@ -43,5 +47,44 @@ describe("calculateTotalCosts", () => {
 
   test("calculates the cost for decimal hours", () => {
     expect(calculateTotalCosts(25, 1.5)).toBe(37.5);
+  });
+});
+
+describe("matchSkillsToUser", () => {
+  const matchingSkills = [
+    { title: "Python Tutoring", category: "Programming", price: 20 },
+    { title: "JavaScript Help", category: "Programming", price: 25 },
+    { title: "Guitar Lessons", category: "Music", price: 15 },
+    { title: "Resume Review", category: "Career", price: 0 },
+  ];
+
+  test("matches by category and maximum price", () => {
+    expect(
+      matchSkillsToUser(
+        { category: "Programming", maxPrice: 30 },
+        matchingSkills,
+      ),
+    ).toEqual(matchingSkills.slice(0, 2));
+  });
+
+  test("filters out skills above the maximum price", () => {
+    expect(
+      matchSkillsToUser(
+        { category: "Programming", maxPrice: 20 },
+        matchingSkills,
+      ),
+    ).toEqual([matchingSkills[0]]);
+  });
+
+  test("returns an empty array when no skills match", () => {
+    expect(
+      matchSkillsToUser({ category: "Cooking", maxPrice: 100 }, matchingSkills),
+    ).toEqual([]);
+  });
+
+  test("includes free skills when the maximum price is zero", () => {
+    expect(
+      matchSkillsToUser({ category: "Career", maxPrice: 0 }, matchingSkills),
+    ).toEqual([matchingSkills[3]]);
   });
 });
