@@ -6,6 +6,7 @@
     <meta name="description" content="Skill Swap helps people learn from one another by sharing their skills.">
     <title>Skill Swap</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="skillswap.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -30,10 +31,13 @@
       <section class="offerings" id="offerings" aria-labelledby="offerings-title">
         <h2 id="offerings-title">Skill offerings</h2>
         <p>Discover skills shared by members of your community.</p>
-        <div class="offering-placeholder">
-          <h3>Skill listings coming soon</h3>
-          <p>Check back to find a skill to learn or share one of your own.</p>
+        <div class="skill-filters" role="group" aria-label="Filter skills by category">
+          <button type="button" class="skill-filter" data-category="All" aria-pressed="true">All</button>
+          <button type="button" class="skill-filter" data-category="Programming" aria-pressed="false">Programming</button>
+          <button type="button" class="skill-filter" data-category="Music" aria-pressed="false">Music</button>
+          <button type="button" class="skill-filter" data-category="Career" aria-pressed="false">Career</button>
         </div>
+        <div class="skill-list" id="skill-list" aria-live="polite"></div>
       </section>
     </main>
 

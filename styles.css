@@ -94,12 +94,62 @@ h1 {
   font-size: 2rem;
 }
 
-.offering-placeholder {
+.skill-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.skill-filter {
+  padding: 0.6rem 1rem;
+  border: 1px solid #176b57;
+  border-radius: 999px;
+  color: #176b57;
+  background: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skill-filter:hover,
+.skill-filter:focus-visible,
+.skill-filter[aria-pressed="true"] {
+  color: #fff;
+  background: #176b57;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
   margin-top: 2rem;
   padding: 2rem;
-  border: 1px dashed #8ca99f;
+  border: 1px solid #d5e2dc;
   border-radius: 0.5rem;
   background: #fff;
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  color: #176b57;
+}
+
+.skill-card-category {
+  color: #52645d;
+}
+
+.skill-card-price {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.skill-list-empty {
+  grid-column: 1 / -1;
+  padding: 1rem;
 }
 
 footer {
