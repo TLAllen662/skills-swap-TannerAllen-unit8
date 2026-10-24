@@ -9,6 +9,22 @@ const skills = [
 
 const skillList = document.querySelector("#skill-list");
 const filterButtons = document.querySelectorAll(".skill-filter");
+const calculatorForm = document.querySelector("#cost-calculator-form");
+const calculatorResult = document.querySelector("#calculator-result");
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
+calculatorForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(calculatorForm);
+  const hourlyRate = Number(formData.get("hourlyRate"));
+  const hours = Number(formData.get("hours"));
+  const total = window.calculateTotalCosts(hourlyRate, hours);
+  calculatorResult.textContent = `Total cost: ${currencyFormatter.format(total)}`;
+});
 
 function renderSkills(category) {
   const filteredSkills = window.filterSkillsByCategory(skills, category);

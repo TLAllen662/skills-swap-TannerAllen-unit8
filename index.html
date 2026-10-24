@@ -28,6 +28,25 @@
         <a class="hero-link" href="#offerings">Explore skill offerings</a>
       </section>
 
+      <section class="cost-calculator" aria-labelledby="calculator-title">
+        <h2 id="calculator-title">Calculate session cost</h2>
+        <p>Estimate the total cost based on the hourly rate and session length.</p>
+        <form id="cost-calculator-form">
+          <div class="calculator-fields">
+            <label for="hourly-rate">
+              Hourly rate ($)
+              <input id="hourly-rate" name="hourlyRate" type="number" min="0" step="any" required>
+            </label>
+            <label for="session-hours">
+              Hours
+              <input id="session-hours" name="hours" type="number" min="0" step="any" required>
+            </label>
+          </div>
+          <button class="calculator-submit" type="submit">Calculate total</button>
+        </form>
+        <p id="calculator-result" class="calculator-result" aria-live="polite"></p>
+      </section>
+
       <section class="offerings" id="offerings" aria-labelledby="offerings-title">
         <h2 id="offerings-title">Skill offerings</h2>
         <p>Discover skills shared by members of your community.</p>

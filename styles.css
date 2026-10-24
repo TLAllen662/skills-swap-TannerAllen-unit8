@@ -85,6 +85,62 @@ h1 {
   background: #10513f;
 }
 
+.cost-calculator {
+  margin: 0 1rem 2rem;
+  padding: 2rem;
+  border: 1px solid #d5e2dc;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.cost-calculator h2 {
+  margin-top: 0;
+  color: #176b57;
+}
+
+.calculator-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.calculator-fields label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.calculator-fields input {
+  width: min(100%, 14rem);
+  padding: 0.65rem;
+  border: 1px solid #8ca99f;
+  border-radius: 0.375rem;
+  font: inherit;
+}
+
+.calculator-submit {
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-radius: 0.375rem;
+  color: #fff;
+  background: #176b57;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calculator-submit:hover,
+.calculator-submit:focus-visible {
+  background: #10513f;
+}
+
+.calculator-result {
+  min-height: 1.5em;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
 .offerings {
   padding: 2rem 1rem 4rem;
 }
