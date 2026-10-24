@@ -1,4 +1,4 @@
-const skillSwapFunctions = require("../skillswap-functions");
+const skillSwapFunctions = require("../skillswap");
 
 const { filterSkillsByCategory } = skillSwapFunctions;
 
