@@ -85,7 +85,8 @@ h1 {
   background: #10513f;
 }
 
-.cost-calculator {
+.cost-calculator,
+.skill-matcher {
   margin: 0 1rem 2rem;
   padding: 2rem;
   border: 1px solid #d5e2dc;
@@ -93,7 +94,8 @@ h1 {
   background: #fff;
 }
 
-.cost-calculator h2 {
+.cost-calculator h2,
+.skill-matcher h2 {
   margin-top: 0;
   color: #176b57;
 }
@@ -111,7 +113,8 @@ h1 {
   font-weight: 600;
 }
 
-.calculator-fields input {
+.calculator-fields input,
+.calculator-fields select {
   width: min(100%, 14rem);
   padding: 0.65rem;
   border: 1px solid #8ca99f;

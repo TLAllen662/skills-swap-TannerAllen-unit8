@@ -26,19 +26,21 @@ calculatorForm.addEventListener("submit", (event) => {
   calculatorResult.textContent = `Total cost: ${currencyFormatter.format(total)}`;
 });
 
-function renderSkills(category) {
-  const filteredSkills = window.filterSkillsByCategory(skills, category);
-  skillList.replaceChildren();
+const matcherForm = document.querySelector("#skill-matcher-form");
+const matchResults = document.querySelector("#match-results");
 
-  if (filteredSkills.length === 0) {
+function renderSkillCards(container, skillsToShow, emptyText) {
+  container.replaceChildren();
+
+  if (skillsToShow.length === 0) {
     const emptyMessage = document.createElement("p");
     emptyMessage.className = "skill-list-empty";
-    emptyMessage.textContent = "No skills found in this category.";
-    skillList.append(emptyMessage);
+    emptyMessage.textContent = emptyText;
+    container.append(emptyMessage);
     return;
   }
 
-  filteredSkills.forEach((skill) => {
+  skillsToShow.forEach((skill) => {
     const card = document.createElement("article");
     card.className = "skill-card";
 
@@ -54,9 +56,32 @@ function renderSkills(category) {
     price.textContent = skill.price === 0 ? "Free" : `$${skill.price}`;
 
     card.append(title, categoryLabel, price);
-    skillList.append(card);
+    container.append(card);
   });
 }
+
+function renderSkills(category) {
+  renderSkillCards(
+    skillList,
+    window.filterSkillsByCategory(skills, category),
+    "No skills found in this category.",
+  );
+}
+
+matcherForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(matcherForm);
+  const userNeeds = {
+    category: formData.get("category"),
+    maxPrice: Number(formData.get("maxPrice")),
+  };
+  renderSkillCards(
+    matchResults,
+    window.matchSkillsToUser(userNeeds, skills),
+    "No skills match your needs. Try a higher budget or another category.",
+  );
+});
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {

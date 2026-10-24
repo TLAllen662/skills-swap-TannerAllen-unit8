@@ -47,6 +47,29 @@
         <p id="calculator-result" class="calculator-result" aria-live="polite"></p>
       </section>
 
+      <section class="skill-matcher" aria-labelledby="matcher-title">
+        <h2 id="matcher-title">Find My Match</h2>
+        <p>Tell us what you want to learn and your budget, and we'll find matching skills.</p>
+        <form id="skill-matcher-form">
+          <div class="calculator-fields">
+            <label for="match-category">
+              Category
+              <select id="match-category" name="category" required>
+                <option value="Programming">Programming</option>
+                <option value="Music">Music</option>
+                <option value="Career">Career</option>
+              </select>
+            </label>
+            <label for="match-max-price">
+              Max price ($)
+              <input id="match-max-price" name="maxPrice" type="number" min="0" step="any" required>
+            </label>
+          </div>
+          <button class="calculator-submit" type="submit">Find My Match</button>
+        </form>
+        <div class="skill-list" id="match-results" aria-live="polite"></div>
+      </section>
+
       <section class="offerings" id="offerings" aria-labelledby="offerings-title">
         <h2 id="offerings-title">Skill offerings</h2>
         <p>Discover skills shared by members of your community.</p>
